@@ -1,0 +1,15 @@
+<add-space heightpx="10"></add-space>
+<div class="checklist-item-container" style="border:0;">
+	<div class="item-icon-high"><i class="fa fa-exclamation"></i></div>
+	<h3 style="margin-right:15px">Required</h3>
+	<div class="item-icon-low"><i class="fa fa-check"></i></div>
+	<h3>Full realism</h3>
+</div>
+<horiz-rule margintop="10" marginbottom="5"></horiz-rule>
+<div>
+	<select ng-model="Ctrl.checklistSelected" ng-options="c.label for c in Ctrl.checklist_dp" ng-change="Ctrl.selectChecklist();"></select>
+</div>
+<horiz-rule margintop="5" marginbottom="10"></horiz-rule>
+<div class="list-container">
+    <div checklist-item priority="{{e.priority}}" item="{{e.item}}" data="{{e.data}}" ng-repeat="e in Ctrl.checklistDisplayed"></div>
+</div>

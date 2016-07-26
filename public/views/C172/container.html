@@ -1,0 +1,15 @@
+<div ng-controller="C172Ctrl as Ctrl">
+<div class="page-title">
+	<h2>Cessena C172SP by AirFoil</h2>
+</div>
+<div id='cssmenu'>
+    <ul>
+        <li ng-class="{ active: Ctrl.tabView == 'overview'}" ng-click="Ctrl.goNav('overview')"><a>Overview</a></li>
+        <li ng-class="{ active: Ctrl.tabView == 'specs'}" ng-click="Ctrl.goNav('specs')"><a>Specs</a></li>
+        <li ng-class="{ active: Ctrl.tabView == 'checklists'}" ng-click="Ctrl.goNav('checklists')"><a>Checklists</a></li>
+        <li ng-class="{ active: Ctrl.tabView == 'video'}" ng-click="Ctrl.goNav('video')"><a>Video</a></li>
+        <li ng-class="{ active: Ctrl.tabView == 'tutorial'}" ng-click="Ctrl.goNav('tutorial')"><a>Tutorial</a></li>
+    </ul>
+</div>
+<div ui-view></div>
+</div>

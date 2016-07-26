@@ -1,0 +1,19 @@
+<div ng-controller="AlphabetCtrl as Ctrl">
+    <div class="page-title">
+        <h2>General Reference > Aviation Alphabet</h2>
+    </div>
+    <table st-table="Ctrl.alphabet" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Letter</th>
+                <th>Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in Ctrl.alphabet">
+                <td>{{row.letter}}</td>
+                <td>{{row.word}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+<div class="page-title">
+    <div class="spec-tables">
+        <div>
+            <h3>Stats</h3>
+            <table st-table="Ctrl.stats" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.stats">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h3>Speeds</h3>
+            <table st-table="Ctrl.speeds" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.speeds">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<add-space heightpx="10"></add-space>
+<div class="checklist-item-container" style="border:0;">
+	<div class="item-icon-high"><i class="fa fa-exclamation"></i></div>
+	<h3 style="margin-right:15px">Required</h3>
+	<div class="item-icon-low"><i class="fa fa-check"></i></div>
+	<h3>Full realism</h3>
+</div>
+<horiz-rule margintop="10" marginbottom="5"></horiz-rule>
+<div>
+	<select ng-model="Ctrl.checklistSelected" ng-options="c.label for c in Ctrl.checklist_dp" ng-change="Ctrl.selectChecklist();"></select>
+</div>
+<horiz-rule margintop="5" marginbottom="10"></horiz-rule>
+
+<div class="list-container">
+    <div checklist-item priority="{{e.priority}}" item="{{e.item}}" data="{{e.data}}" ng-repeat="e in Ctrl.checklistDisplayed"></div>
+</div>
+
+<div ng-show="Ctrl.chkLstInstruct.start">
+	<ul>
+		<li>Whenever possible, use external power source to start engines.</li>
+		<li>Simultaneous engine starts is not permitted.</li>
+		<li>If battery used for starting, recharge by ensuring the corresponding GEN is on,and waiting until battery load is reduced to 100A or less.</li>
+	</ul>
+</div>
+<div ng-show="Ctrl.chkLstInstruct.engine">
+	<p>Set Auto feather by Move the throttle controls completely down into the </p>
+</div>
+<div ng-show="Ctrl.chkLstInstruct.autopilot">
+	<p>Autopilot should only be engaged while the aircraft is in straight and level flight.</p>
+	<p> The autopilot ALT/PITCH controls are a bit tricky and can throw the aircraft into a deep dive or steep pitch when initially engaged.</p>
+</div>

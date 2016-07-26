@@ -1,0 +1,95 @@
+<div class="page-title">
+<add-space heightpx = '10'></add-space>
+<div>
+    <select ng-model="Ctrl.specTableSelected" ng-options="c.label for c in Ctrl.specTable_dp" ng-change="Ctrl.selectSpecTable();"></select>
+</div>
+<add-space heightpx = '10'></add-space>
+    <div class="spec-tables">
+        <div ng-show="Ctrl.specTableSelected.list=='stats'">
+            <h3>Stats</h3>
+            <table st-table="Ctrl.stats" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.stats">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="Ctrl.specTableSelected.list=='speeds'">
+            <h3>Speeds</h3>
+            <table st-table="Ctrl.speeds" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.speeds">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="Ctrl.specTableSelected.list=='rateOfClimb'">
+            <h3>Vy - Best Rate of Climb Speed</h3>
+            <table st-table="Ctrl.rateOfClimb" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Weight</th>
+                        <th>Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.rateOfClimb">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div ng-show="Ctrl.specTableSelected.list=='angleOfClimb'">
+            <h3>Vx - Best Angle of Climb Speed</h3>
+            <table st-table="Ctrl.angleOfClimb" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Weight</th>
+                        <th>Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.angleOfClimb">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="Ctrl.specTableSelected.list=='approach'">
+            <h3>Approach and GoAround Speeds</h3>
+            <table st-table="Ctrl.approach" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Weight</th>
+                        <th>Speed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in Ctrl.approach">
+                        <td>{{row.item}}</td>
+                        <td>{{row.data}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

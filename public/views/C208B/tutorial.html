@@ -1,0 +1,33 @@
+<div class="page-title">
+	<h2>Select Tutorial</h2>
+	<select ng-model="Ctrl.tutorialSelected" ng-options="c.label for c in Ctrl.tutorial_dp" ng-change="Ctrl.selectTutorial();"></select>
+</div>
+<horiz-rule margintop="10" marginbottom="10"></horiz-rule>
+
+<div ng-show="Ctrl.tutorialSelected.id=='pu'">
+	<flash src="views/C208B/swf/C208B-powerup.swf" width="908" height="576"></flash>
+</div>
+
+<div ng-show="Ctrl.tutorialSelected.id=='start'">
+	<flash src="views/C208B/swf/C208B-start.swf" width="908" height="576"></flash>
+</div>
+
+<div ng-show="Ctrl.tutorialSelected.id=='pb'">
+	<flash src="views/C208B/swf/C208B-pushback.swf" width="908" height="576"></flash>
+</div>
+
+<div ng-show="Ctrl.tutorialSelected.id=='taxi'">
+	<flash src="views/C208B/swf/C208B-taxi-hold.swf" width="908" height="576"></flash>
+</div>
+
+<div ng-show="Ctrl.tutorialSelected.id=='to'">
+	<flash src="views/C208B/swf/C208B-takeoff.swf" width="908" height="576"></flash>
+</div>
+
+<div ng-show="Ctrl.tutorialSelected.id=='vis'">
+	<flash src="views/C208B/swf/C208B-VisApr.swf" width="908" height="576"></flash>
+</div>
+
+<div ng-show="Ctrl.tutorialSelected.id=='ils'">
+	<flash src="views/C208B/swf/C208B-ILS.swf" width="908" height="576"></flash>
+</div>

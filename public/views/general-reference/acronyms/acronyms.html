@@ -1,0 +1,20 @@
+<div ng-controller="AcronymCtrl as Ctrl">
+    <div class="page-title">
+        <h2>Ground School - Aviation Acronyms</h2>
+    </div>
+    <div class="flex-row">
+        <div>
+            <input type="text" ng-maxlength="4" ng-model="Ctrl.searchInput" ng-change="Ctrl.doSearch();">
+        </div>
+        <div class="search-icon"><i class="fa fa-search"></i></div>
+    </div>
+    <horiz-rule margintop="10" marginbottom="10"></horiz-rule>
+    <table st-table="Ctrl.searchResults" class="table table-striped">
+        <tbody>
+            <tr ng-repeat="row in Ctrl.searchResults">
+                <td>{{row.code}}</td>
+                <td>{{row.decode}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

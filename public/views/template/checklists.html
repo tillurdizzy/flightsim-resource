@@ -1,0 +1,23 @@
+<div class="page-title">
+    <h2>Checklists</h2></div>
+<div class="checklist-select"></div>
+<div class=checklist-table>
+	<h3>{{Ctrl.checklistTitle}}</h3>
+    <table st-table="Ctrl.selectedChecklist" class="table table-striped">
+        <thead>
+            <tr>
+            	<th>*</th>
+                <th>Item</th>
+                <th>Setting</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="row in Ctrl.selectedChecklist">
+                <td>{{row.item}}</td>
+                <td>{{row.item}}</td>
+                <td>{{row.data}}</td>
+          
+            </tr>
+        </tbody>
+    </table>
+</div>

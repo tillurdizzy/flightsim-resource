@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Flightsim Aircraft Resource Center (FARC)</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="pragma" content="no-cache">
+    <!--Dependencies; AngularJS etc.-->
+    <script src="bundle.js?v=1"></script>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,800,600' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700italic' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Jaldi:400,700' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/ngDialog.min.css" />
+    <link rel="stylesheet" href="css/ngDialog-theme-default.min.css" />
+    <link rel="stylesheet" href="css/ngDialog-theme-alert.css" />
+    <link rel="stylesheet" href="css/ngDialog-theme-calm.css" />
+    <link rel="stylesheet" href="css/app.css?v=5" />
+    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+
+<body ng-app="MyApp" class="flex-column" ng-cloak>
+    <div class="top-bar">
+        <div>
+            <h1>Flightsim Aircraft Resource Center</h1></div>
+    </div>
+    <div class="flex-row">
+        <div class="side-nav" ng-controller="NavCtrl as Ctrl">
+            <div>
+                <button class="button menu" ng-click="Ctrl.goNav('home')">Home</button>
+            </div>
+            <div>
+                <button class="button menu" ng-click="Ctrl.goNav('ground')" ng-click="Ctrl.submenu1='ground'">Ground School</button>
+
+                <div ng-show="Ctrl.submenu1=='ground'">
+                    <button class="button sub1" ng-click="Ctrl.submenu2='ground.airport'">Around the Airport</button>
+                </div>
+                <div ng-show="Ctrl.submenu2=='ground.airport'">
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.airport.lighting')">Lighting</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.airport.signage')">Signage</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.airport.markings')">Pavement Markings</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.airport.ils')">Instrument Landing System</button>
+                </div>
+                
+                <div ng-show="Ctrl.submenu1=='ground'">
+                    <button class="button sub1" ng-click="Ctrl.submenu2='ground.atc'">Air Traffic Control</button>
+                </div>
+                <div ng-show="Ctrl.submenu2=='ground.atc'">
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.radiocomms')">Radio Communications</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.vatsim')">VATSIM</button>
+                </div>
+                <div ng-show="Ctrl.submenu1=='ground'">
+                    <button class="button sub1" ng-click="Ctrl.submenu2='ground.aircraft'">Aircraft Systems</button>
+                </div>
+                <div ng-show="Ctrl.submenu2=='ground.aircraft'">
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.aircraftLights')">Lights</button>
+                </div>
+                <div ng-show="Ctrl.submenu1=='ground'">
+                    <button class="button sub1" ng-click="Ctrl.submenu2='ground.planning'">Flight Planning</button>
+                </div>
+                <div ng-show="Ctrl.submenu2=='ground.planning'">
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.navaids')">NAV Aids</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.altitude')">Altitude Selection</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.approach')">Approach Phases</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ground.nat')">NAT</button>
+                </div>
+                <div ng-show="Ctrl.submenu1=='ground'">
+                    <button class="button sub1" ng-click="Ctrl.submenu2='ground.weather'">Weather</button>
+                </div>
+                <div ng-show="Ctrl.submenu2=='ground.weather'">
+                    <button class="button sub2" ng-click="Ctrl.goNav('metar')">METAR Glossary</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('windp')">Wind and Pressure</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('shear')">Windshears</button>
+                    <button class="button sub2" ng-click="Ctrl.goNav('ice')">Ice Conditions</button>
+                </div>
+                
+            </div>
+            <div>
+                <button class="button menu" ng-click="Ctrl.goNav('aircraft')">Aircraft Tutorials</button>
+            </div>
+
+            <div>
+                <button class="button menu" ng-click="Ctrl.submenu1='ref'">General Reference</button>
+            </div>
+
+            <div ng-show="Ctrl.submenu1=='ref'">
+                <button class="button sub1" ng-click="Ctrl.goNav('acronyms')">Aviation Acronyms</button>
+            </div>
+            <div ng-show="Ctrl.submenu1=='ref'">
+                <button class="button sub1" ng-click="Ctrl.goNav('alphabet')">Avation Alphabet</button>
+            </div>
+           <div ng-show="Ctrl.submenu1=='ref'">
+                <button class="button sub1" ng-click="Ctrl.goNav('unitconversion')">Unit Conversions</button>
+            </div>
+            <div ng-show="Ctrl.submenu1=='ref'">
+                <button class="button sub1" ng-click="Ctrl.goNav('morsecode')">Morse Code</button>
+            </div>
+            <div ng-show="Ctrl.submenu1=='ref'">
+                <button class="button sub1" ng-click="Ctrl.goNav('vspeeds')">Vspeed Glossary</button>
+            </div>
+        </div>
+        <div ui-view class="view-container"></div>
+    </div>
+    <script src="myApp.js?v=3"></script>
+    <!--Global Services-->
+    <script src="js/data.srvc.js?v=3"></script>
+    <script src="js/login.srvc.js?v=3"></script>
+    <script src="js/shared.srvc.js?v=3"></script>
+    <script src="js/list.srvc.js?v=3"></script>
+    <script src="js/tabbedMenu.ctrl.js?v=3"></script>
+    <script src="js/nav.ctrl.js?v=1"></script>
+    <script src="views/login/login.ctrl.js?v=4"></script>
+    <!--Directives-->
+    <script src="js/directives/hrule.dir.js?v=1"></script>
+    <script src="js/directives/space.dir.js?v=1"></script>
+    <script src="js/directives/checkListItem.dir.js?v=1"></script>
+
+    <!--Modules-->
+    <script src="js/directives/ng-youtube-embed.js?v=1"></script>
+    
+
+    <!--Controllers-->
+    <script src="views/C172/C172.mod.js?v=1"></script>
+    <script src="views/C172/C172.ctrl.js?v=1"></script>
+    <script src="views/C172/C172.srvc.js?v=1"></script>
+    <script src="views/C208B/C208B.ctrl.js?v=1"></script>
+    <script src="views/C208B/C208B.srvc.js?v=1"></script>
+    <script src="views/EMB110/EMB110.ctrl.js?v=1"></script>
+    <script src="views/ground-school/grnd.ctrl.js?v=1"></script>
+    
+    <script src="views/ground-school/airport/airport.mod.js?v=1"></script>
+
+    <script src="views/ground-school/atc/radiocomms/radiocomms.ctrl.js?v=1"></script>
+    <script src="views/ground-school/atc/vatsim/vatsim.ctrl.js?v=1"></script>
+    <script src="views/ground-school/planning/aids/aids.ctrl.js?v=1"></script>
+    <script src="views/ground-school/planning/altitude/altitude.ctrl.js?v=1"></script>
+    <script src="views/ground-school/planning/approach/approach.ctrl.js?v=1"></script>
+    <script src="views/ground-school/planning/nat/nat.ctrl.js?v=1"></script>
+    <script src="views/general-reference/acronyms/acronyms.ctrl.js?v=1"></script>
+    <script src="views/general-reference/alphabet/alphabet.ctrl.js?v=1"></script>
+    <script src="views/general-reference/morsecode/morsecode.ctrl.js?v=1"></script>
+    <script src="views/general-reference/unitconversion/unitconversion.ctrl.js?v=1"></script>
+    <script src="views/general-reference/vspeeds/vspeeds.ctrl.js?v=1"></script>
+</body>
+
+</html>

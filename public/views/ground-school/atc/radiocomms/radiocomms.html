@@ -1,0 +1,143 @@
+<div ng-controller="RadComCtrl as Ctrl">
+    <div class="page-title">
+        <h2>Ground School > ATC > Radio Communications</h2>
+    </div>
+    <div>
+        <select ng-model="Ctrl.viewSelected" ng-options="c.label for c in Ctrl.selectViews_dp" ng-change="Ctrl.selectView();"></select>
+    </div>
+    <div ng-show="Ctrl.currentView=='1'">
+        <h3>1. Clearance Delivery</h3>
+        <p>Clearance Delivery is an air traffic controller whose function is to coordinate with other ATC facilities and provide departing aircraft with an instrument flight clearance. The pilot of a departing aircraft calls clearance delivery, states the aircraft identification and destination, and requests an IFR clearance.</p>
+        <p>The clearance delivery controller issues a clearance to the aircraft, providing the following elements:</p>
+        <ul>
+            <li>Departure procedure -tells the pilot on what heading and at what altitude to depart from the airport.</li>
+            <li>Route of flight - the route that the pilot is to follow in order to arrive at the destination.</li>
+            <li>Altitude data - the initial altitude to be flown and the altitude to expect at a specified time, typically 10 minutes, after departure.</li>
+            <li>Departure control frequency - the first frequency on which to contact the departure controller when the tower instructs a frequency change.</li>
+            <li>Transponder code - the code to be entered in the transponder to assist radar equipped air traffic controllers in following the aircraft.</li>
+        </ul>
+        <div class="pilot">Big Jet 345, Gate B7, Boeing 737 with information Q, QNH1006, request clearance.</div>
+        <div class="atc">Big Jet 345, Metro Delivery, Cleared to Smallville, T1A departure, Squawk 3456</div>
+        <p>Pilot communication can be adversely affected by simultaneous or continuous transmissions. There are times when the controller is not aware of a blocked transmission, but a pilot is. On hearing a simultaneous transmission it can be helpful if a pilot informs ATC that the transmission was BLOCKED.</p>
+    </div>
+    <div ng-show="Ctrl.currentView=='2'">
+        <h3>2. Ground - Push back</h3>
+        <p>Ground Control is a controller in the tower cab whose responsibility it is to instruct all aircraft on the movement area of the airport. After clearance delivery has issued the clearance to the flight, its corresponding flight progress strip is passed to the ground controller. Thus, when a pilot radios the ground controller, the ground controller already knows the aircraft's route of flight and can assign an appropriate runway for that route, depending on which runways are available and the wind and weather conditions then prevailing.</p>
+        
+        <div class="pilot">Metro Ground, Big Jet 345, Gate B7, ready for push back.</div>
+        <div class="atc">Big Jet 345, cleared for push back, contact when ready for taxi.</div>
+        
+    </div>
+
+    <div ng-show="Ctrl.currentView=='3'">
+        <h3>3. Ground - Taxi to runway</h3>
+        <div class="pilot">Metro Ground, Big Jet 345, ready for taxi.</div>
+        <div class="atc">Big Jet 345, Metro Ground, taxi to holding point A1, hold short of Runway 18, contact Metro Tower 119.20</div>
+        <p>Communication is crucial to the safety of the flight during taxiing. Any mistake that causes the aircraft to enter a runway in error could be catastrophic. 
+        All taxi clearances will contain a clearance limit, which is the point at which the aircraft must stop unless further permission to proceed is given. Complex or lengthy taxi clearances should be noted down by crews. Any instructions to HOLD, HOLD POSITION or HOLD SHORT OF, shall be read back in full using the appropriate phrase – HOLDING or HOLD SHORT OF.</p>
+    </div>
+
+    <div ng-show="Ctrl.currentView=='4'">
+        <h3>4. Tower - Taxi on to runway and take off clearance</h3>
+        <p>Local Control has the responsibility for instructing all airborne aircraft within the vicinity of the airport, including instructions for aircraft to takeoff and land. The local controller may have to coordinate with the departure and arrival controllers in sequencing arriving and departing aircraft, and with the ground controller to authorize aircraft to taxi on or across active runways.</p>
+        <div class="pilot">Metro Tower, Big Jet 345, approaching holding point C1.</div>
+        <div class="atc">Big Jet 345, Metro Tower, line up runway 27.</div>
+        <div class="pilot">xxMetro Tower, Big Jet 345, approaching holding point C1.</div>
+        <div class="atc">Lining up runway 27, Big Jet 345.</div>
+        <div class="pilot">Big Jet 345, runway 27, cleared for take-off.</div>
+        <div class="atc">Cleared for take-off, Big Jet 345.</div>
+        <div class="pilot">Big Jet 345, contact Metro Radar 124.60</div>
+        <div class="atc">Contact Metro Radar on 124.60, Big Jet 345</div>
+        <p>VHF frequencies: Use five digits except where the final two digits of the frequency are both zero, in which case only the first three digits need to be transmitted.</p>
+    </div>
+
+    <div ng-show="Ctrl.currentView=='5'">
+        <h3>5. Departure - Climb clearance and route changes</h3>
+        <div class="pilot">Metro Radar, Big Jet 345, passing 2300 feet climbing to 6000 feet.</div>
+        <div class="atc">Big Jet 345, fly heading 260 degrees, climb to FL100, no speed restrictions.</div>
+        <div class="pilot">Fly heading 260 degrees, climb to FL100, no speed restrictions, Big Jet 345</div>
+        <div class="atc">Big Jet 345, fly direct BONNY, climb to FL360</div>
+        <div class="pilot">Direct BONNY, climb to FL360, Big Jet 345</div>
+        <div class="atc">Big Jet 345, contact Northern Control, 132.60</div>
+        <p>Avoid heading and flight level confusion by appending the word ‘degrees’ to headings. Flight levels below FL100 are referred to as two digit numbers (e.g. 'Climb flight level eight zero'). Special care should be taken when enunciating ‘zero zero’.</p>
+    </div>
+
+    <div ng-show="Ctrl.currentView=='6'">
+        <h3>6. Control Center - Climb and cruise</h3>
+        <div class="pilot">Northern Control, Big Jet 345, passing FL240 climbing to FL360, direct BONNY</div>
+        <div class="atc">Big Jet 345, Northern Control, squawk 3227</div>
+        <div class="pilot">Squawk 3227, Big Jet 345</div>
+        <div class="atc">Big Jet 345, Northern Control, radar contact 10NM south of BONNY, continue climb to FL360, fly direct CLYDE</div>
+        <div class="pilot">Northern Control, Big Jet 345, continue climb to FL360, fly direct CLYDE</div>
+    </div>
+
+    <div ng-show="Ctrl.currentView=='7'">
+        <h3>7. Tower - Approach and landing</h3>
+        <div class="pilot">Metro Approach, Big Jet 345, Boeing 737 with information P, Holding MAYFIELD descending FL 80</div>
+        <div class="atc">Big Jet 345, Metro Approach, now information Q, new QNH 998</div>
+        <div class="pilot">QNH 998, Big Jet 345</div>
+        <div class="atc">Big Jet 345, leave MAYFIELD, heading 120 descend to 6000 feet, QNH 998, speed 210 knots</div>
+        <div class="pilot">Heading 120, descend to 6000 feet, QNH 998, speed 210 knots, Big Jet 345</div>
+        <div class="atc">Big Jet 345, leave MAYFIELD, heading 120 descend to 6000 feet, QNH 998, speed 210 knots</div>
+        <div class="pilot">Heading 120, descend to 6000 feet, QNH 998, speed 210 knots, Big Jet 345</div>
+        <div class="atc">Big Jet 345, turn right heading 180, speed 180 knots, vectoring ILS runway 27 Right</div>
+        <div class="pilot">Right heading 180, speed 180 knots, Big Jet 345</div>
+        <div class="atc">Big Jet 345, turn right heading 240, descend to 3000 feet, report established localiser runway 27 Right</div>
+        <div class="pilot">Right heading 240, descend to 3000 feet, report established localiser runway 27 Right, Big Jet 345</div>
+         <div class="pilot">Big Jet 345, established localiser</div>
+        <div class="atc">Big Jet 345, cleared ILS approach runway 27 Right</div>
+        <div class="pilot">Cleared ILS approach runway 27 right, Big Jet 345</div>
+        <div class="atc">Big Jet 345, maintain 3000ft until glide-path interception</div>
+        <div class="pilot">Maintain 3000 ft until glide-path runway 27 right, Big Jet 345</div>
+        <div class="atc">Metro Tower, Big Jet 345, final runway 27 Right</div>
+        <div class="pilot">Big Jet 345, continue approach</div>
+        <div class="atc">Continue approach, Big Jet 345</div>
+        <div class="pilot">Big Jet 345, cleared to land, runway 27 Right, wind 270 degrees ten knots</div>
+        <div class="atc">Cleared to land runway 27 Right, Big Jet 345</div>
+    </div>
+
+     <div ng-show="Ctrl.currentView=='8'">
+        <h3>8. Ground - Taxi to gate</h3>
+        <p>Ground Control is a controller in the tower cab whose responsibility it is to instruct all aircraft on the movement area of the airport. After clearance delivery has issued the clearance to the flight, its corresponding flight progress strip is passed to the ground controller. Thus, when a pilot radios the ground controller, the ground controller already knows the aircraft's route of flight and can assign an appropriate runway for that route, depending on which runways are available and the wind and weather conditions then prevailing.</p>
+    </div>
+
+    <div ng-show="Ctrl.currentView=='8'">
+        <h3>9. Common Phrases You Should Know</h3>
+        <h5>Acknowledge</h5>
+        <p>Let me know that you have understood this message.</p>
+        <h5>Advise intentions</h5>
+        <p>What are you planning to do?</p>
+        <h5>Affirmative</h5>
+        <p>Yes</p>
+        <h5>Confirm</h5>
+        <p>Is that correct?</p>
+        <h5>Correction</h5>
+        <p>Incorrect information, correct information follows.</p>
+        <h5>Go ahead</h5>
+        <p>State your request. (Does not mean to proceed!)</p>
+        <h5>Hold</h5>
+        <p>Stop at your current position.</p>
+        <h5>Hold short of...</h5>
+        <p>Proceed to and hold position at a specified point.</p>
+        <h5>Negative</h5>
+        <p>Incorrect, request denied, or No.</p>
+        <h5>Proceed</h5>
+        <p>Authorized to begin or continue moving.</p>
+        <h5>Read back</h5>
+        <p>Repeat the last message back.</p>
+        <h5>Roger</h5>
+        <p>Received and understood last transmission.</p>
+        <h5>Say again</h5>
+        <p>Repeat last transmission.</p>
+        <h5>Standby</h5>
+        <p>Wait, I will get back to you.</p>
+        <h5>Unable</h5>
+        <p>Can not comply with previous instructions.</p>
+        <h5>Verify</h5>
+        <p>Request confirmation of information.</p>
+        <h5>Wilco</h5>
+        <p>Received, understood and will comply.</p>
+        <h5>To and For</h5>
+        <p>Use of the words 'TO' and 'FOR' directly before a climb/descent instruction or change of heading can be confused as 'TWO' or 'FOUR'. Such confusion is avoided by using the mandatory words Flight Level or Heading immediately before the numbers.</p>
+    </div>
+</div>
